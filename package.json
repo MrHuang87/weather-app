@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "standardize": "prettier '**/*.ts' --write",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -10,6 +11,13 @@
     "e2e": "ng e2e"
   },
   "private": true,
+  "prettier": {
+    "printWidth": 90,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "parser": "typescript"
+  },
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
