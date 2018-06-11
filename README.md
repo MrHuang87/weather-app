@@ -47,3 +47,9 @@ ng serve --open
 ng g i ICurrentWeather
 ```
 
+## 3 创建weather service
+```
+ng g s weather --flat false
+```
+
+

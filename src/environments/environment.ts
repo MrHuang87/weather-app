@@ -2,8 +2,11 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// app key可能需要几个钟头后才能生效
 export const environment = {
-  production: false
+  production: false,
+  appId: '3712af1ad984cbffcc7823f27d8007bd',
+  baseUrl: 'http://'
 };
 
 /*

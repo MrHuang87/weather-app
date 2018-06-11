@@ -1,3 +1,4 @@
+import { WeatherService } from './../weather/weather.service';
 import { ICurrentWeather } from './../icurrent-weather';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class CurrentWeatherComponent implements OnInit {
   current: ICurrentWeather;
 
-  constructor() {
-    this.current = {
-      city: 'Shenzhen',
-      country: 'cn',
-      date: new Date(),
-      image: 'assets/img/sunny.svg',
-      temperature: 72,
-      description: 'sunny'
-    } as ICurrentWeather;
+  constructor(private weatherService : WeatherService) {
   }
 
   ngOnInit() {
+    this.weatherService.getCurrentWeather('shenzhen', 'cn')
+    .subscribe((data) => {
+      console.log(data);
+      return this.current = data
+    });
   }
 
+  getOrdinal(date: number) {
+    const n = new Date(date).getDate()
+    return n > 0
+      ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10]
+      : ''
+  }
 }
