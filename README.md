@@ -32,4 +32,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # app step by step
 
-## app.component.html
+## 1 app.component.html
+
+## 2 创建current-weather组件
+```
+ng g c current-weather
+ng serve --open
+```
+
+修改app.component.html，添加<app-current-weather>标签
+
+创建模型
+```
+ng g i ICurrentWeather
+```
+
