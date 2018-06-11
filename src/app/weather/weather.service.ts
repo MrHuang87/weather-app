@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs/internal/Observable';
-import { environment } from './../../environments/environment';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ICurrentWeather } from '../icurrent-weather';
+import { Observable } from 'rxjs/internal/Observable'
+import { environment } from './../../environments/environment'
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { ICurrentWeather } from '../icurrent-weather'
 
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs/operators'
 
 interface ICurrentWeatherData {
   weather: [
@@ -12,15 +12,15 @@ interface ICurrentWeatherData {
       description: string
       icon: string
     }
-  ],
+  ]
   main: {
     temp: number
-  },
+  }
   sys: {
     country: string
-  },
-  dt: number,
-  name: string,
+  }
+  dt: number
+  name: string
 }
 
 export interface IWeatherService {
@@ -28,11 +28,10 @@ export interface IWeatherService {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getCurrentWeather(
     search: string | number,
@@ -53,18 +52,16 @@ export class WeatherService {
   }
 
   private getCurrentWeatherHelper(uriParams: string): Observable<ICurrentWeather> {
-    const url =  `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
-        `${uriParams}&appid=${environment.appId}`;
-    
-    console.log(url);
-    return this.httpClient
-      .get<ICurrentWeatherData>(
-        url
-      )
-      .pipe(
-        map(data => {
-          return this.transformToICurrentWeather(data);
-        }));
+    const url =
+      `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
+      `${uriParams}&appid=${environment.appId}`
+
+    console.log(url)
+    return this.httpClient.get<ICurrentWeatherData>(url).pipe(
+      map(data => {
+        return this.transformToICurrentWeather(data)
+      })
+    )
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {
@@ -79,6 +76,6 @@ export class WeatherService {
   }
 
   private convertKelvinToFahrenheit(kelvin: number): number {
-    return kelvin * 9 / 5 - 459.67
+    return (kelvin * 9) / 5 - 459.67
   }
 }

@@ -52,4 +52,12 @@ ng g i ICurrentWeather
 ng g s weather --flat false
 ```
 
+## 4 修复unit test
+
+## 5 null data处理
+
+## 6 docker容器化
+
+## 7 通过zeit now部署应用到web
+
 
