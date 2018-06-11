@@ -19,6 +19,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
     const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector('h1').textContent).toContain('本地天气')
+    expect(compiled.querySelector('h1').textContent).toContain('欢迎查看天气')
   }))
 })

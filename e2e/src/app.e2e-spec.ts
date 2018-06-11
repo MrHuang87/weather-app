@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo()
-    expect(page.getParagraphText()).toEqual('Welcome to weather-app!')
+    expect(page.getParagraphText()).toEqual('欢迎查看天气')
   })
 })
