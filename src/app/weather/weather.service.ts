@@ -54,7 +54,7 @@ export class WeatherService {
   private getCurrentWeatherHelper(uriParams: string): Observable<ICurrentWeather> {
     const url =
       `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
-      `${uriParams}&appid=${environment.appId}`
+      `${uriParams}&appid=${environment.appId}&lang=${environment.lang}`
 
     console.log(url)
     return this.httpClient.get<ICurrentWeatherData>(url).pipe(

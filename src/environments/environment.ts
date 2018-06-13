@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   appId: '3712af1ad984cbffcc7823f27d8007bd',
   baseUrl: 'http://',
+  lang: 'zh_cn',
 }
 
 /*
